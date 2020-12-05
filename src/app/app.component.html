@@ -1,1 +1,42 @@
 <h1>Joep's Code Challenge</h1>
+
+<ng-container *ngIf="showConfetti"><p>CONFETTI! 🎉 🎉 🎉</p></ng-container>
+<ng-container *ngIf="answerIsCorrect">
+  <p class="correct">
+    Woohoo Joep you are incredible! That is totally correct! You are so amazing!
+  </p>
+</ng-container>
+<ng-container *ngIf="answerIsInCorrect">
+  <p class="incorrect">
+    Wow Joep, that was almost right! Please try again, I am sure you will nail
+    it!
+  </p>
+</ng-container>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <ng-container *ngFor="let question of questions">
+    <label>{{ question.id }}. {{ question.title }}</label>
+    <pre>{{ question.body }}</pre>
+
+    <label *ngFor="let option of ['a', 'b', 'c', 'd']">
+      <input type="radio" [value]="option" [formControlName]="question.id" />
+      <span [innerHtml]="question.options[option]"></span>
+    </label>
+
+    <button
+      type="button"
+      (click)="onCheck(question.id)"
+      [disabled]="!form.get(question.id).value"
+    >
+      Check!
+    </button>
+  </ng-container>
+
+  <hr />
+  <button type="submit" [disabled]="!form.valid">Submit!</button>
+</form>
+
+<pre>
+  {{ form.value | json }}
+  {{ form.status }}
+</pre>

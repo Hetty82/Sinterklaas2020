@@ -1,0 +1,29 @@
+label {
+  display: block;
+}
+
+pre {
+  border: 2px solid navy;
+  background: lightblue;
+  padding: 1em;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+.correct {
+  border: 2px solid green;
+  background: lightgreen;
+  padding: 1em;
+  border-radius: 5px;
+}
+
+.incorrect {
+  border: 2px solid red;
+  background: lightpink;
+  padding: 1em;
+  border-radius: 5px;
+}
+
+button[disabled] {
+  opacity: 0.5;
+}
