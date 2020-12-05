@@ -1,3 +1,10 @@
+header {
+  position: sticky;
+  top: 0;
+  background: white;
+  padding-bottom: 2em;
+}
+
 label {
   display: block;
 }
@@ -22,6 +29,10 @@ pre {
   background: lightpink;
   padding: 1em;
   border-radius: 5px;
+}
+
+.confetti {
+  font-size: 2em;
 }
 
 button[disabled] {

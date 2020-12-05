@@ -1,19 +1,34 @@
-<h1>Joep's Code Challenge</h1>
+<header>
+  <h1>Joep's Code Challenge</h1>
 
-<img src="assets/sinterklaas.jpg" alt="Sinterklaas" />
+  <ng-container *ngIf="showConfetti"
+    ><p class="confetti">🎉 🎉 🎉 🎉 🎉 🎉</p></ng-container
+  >
 
-<ng-container *ngIf="showConfetti"><p>CONFETTI! 🎉 🎉 🎉</p></ng-container>
-<ng-container *ngIf="answerIsCorrect">
-  <p class="correct">
-    Woohoo Joep you are incredible! That is totally correct! You are so amazing!
-  </p>
-</ng-container>
-<ng-container *ngIf="answerIsInCorrect">
-  <p class="incorrect">
-    Wow Joep, that was almost right! Please try again, I am sure you will nail
-    it!
-  </p>
-</ng-container>
+  <ng-container *ngIf="isAnswerCorrect">
+    <div class="correct">
+      <p>
+        Woohoo Joep je bent geweldig! Dat is helemaal correct! Je bent
+        fantastisch!
+      </p>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="isAnswerIncorrect">
+    <p class="incorrect">
+      Wauw Joep, dat was bijna goed! Probeer nog eens, ik weet zeker dat je er
+      zult komen.
+    </p>
+  </ng-container>
+
+  <ng-container *ngIf="isAllCorrect">
+    <p class="correct">
+      WOOHOO! GEWELDIG! JE HEBT HET VOOR ELKAAR!
+      <br />
+      Nou ga je cadeautjes verzamelen jeeee! Vind ze.... in de prullenbak!
+    </p>
+  </ng-container>
+</header>
 
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
   <ng-container *ngFor="let question of questions">
@@ -38,7 +53,10 @@
   <button type="submit" [disabled]="!form.valid">Submit!</button>
 </form>
 
-<pre>
-  {{ form.value | json }}
-  {{ form.status }}
-</pre>
+<hr />
+
+<img src="assets/sinterklaas.jpg" alt="Sinterklaas" />
+
+<p>
+  Toelichting: <a [href]="explanationUrl">{{ explanationUrl }}</a>
+</p>
