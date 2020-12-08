@@ -89,6 +89,6 @@ console.log(b === c);`,
       c: '<code>true</code> <code>false</code> <code>false</code>',
       d: '<code>false</code> <code>true</code> <code>true</code>',
     },
-    correctAnswer: AnswerOption.B,
+    correctAnswer: AnswerOption.C,
   },
 ];
